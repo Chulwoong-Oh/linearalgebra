@@ -26,8 +26,6 @@ def making_scatter(a, xrange, yrange):
     ax.spines['top'].set_color('none')
 
     plt.show()
-    
-    
     return True
 
 def making_scatter_warrow(a, xrange, yrange):
@@ -55,6 +53,32 @@ def making_scatter_warrow(a, xrange, yrange):
     
     
     return True
+
+def making_scatter_warrow_fromorigin(a, xrange, yrange):
+
+    fig = plt.figure()
+    ax = fig.add_subplot(1, 1, 1)
+    for i in a:
+        ax.quiver(0, 0, a[i][0], a[i][1], angles = 'xy', scale_units = 'xy', scale = 1)        
+        ax.text(a[i][0], a[i][1], i, size  = 15)
+
+    ax.set_xticks(range(xrange[0], xrange[1]))
+    ax.set_yticks(range(yrange[0], yrange[1]))
+
+    ax.grid()
+    ax.set_axisbelow(True)
+
+    ax.set_aspect('equal', adjustable = 'box')
+
+    ax.spines['left'].set_position('zero')
+    ax.spines['bottom'].set_position('zero')
+
+    ax.spines['right'].set_color('none')
+    ax.spines['top'].set_color('none')
+
+    plt.show()
+    return True
+
 
 def making_scatter_warrow_agg(a, agg, xrange, yrange):
 
